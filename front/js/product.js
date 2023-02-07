@@ -19,7 +19,7 @@ function showProduct() {
             let sectionItem = document.querySelector(".item");
             sectionItem.textContent = "Le produit n'a pas été trouvé";
         })
-    // Afficher les données de l'API dans le DOM
+        // Afficher les données de l'API dans le DOM
         .then((resultAPI) => {
             document.title = `Canapé "${resultAPI.name}" - Kanap`;
 
@@ -76,23 +76,23 @@ function addToCart() {
                 localStorage.setItem("products", JSON.stringify(ProductsInCart));
 
                 // Produit trouvé, on ajoute la quantité
-                } else if (getStorage !== null & getStorage.find(product => product.id === searchID && product.colors === document.querySelector("#colors").value) != undefined) {
+            } else if (getStorage !== null & getStorage.find(product => product.id === searchID && product.colors === document.querySelector("#colors").value) != undefined) {
 
-                    // On cherche un produit par son ID/couleur que si un produit est déjà dans le localStorage
-                    let foundProduct = getStorage.find(product => product.id === searchID && product.colors === document.querySelector("#colors").value);
-                    ProductsInCart = getStorage;
-                    let addQuantity = parseInt(productAdded.quantity) + parseInt(foundProduct.quantity);
-                    foundProduct.quantity = addQuantity;
-                    localStorage.setItem("products", JSON.stringify(ProductsInCart));
+                // On cherche un produit par son ID/couleur que si un produit est déjà dans le localStorage
+                let foundProduct = getStorage.find(product => product.id === searchID && product.colors === document.querySelector("#colors").value);
+                ProductsInCart = getStorage;
+                let addQuantity = parseInt(productAdded.quantity) + parseInt(foundProduct.quantity);
+                foundProduct.quantity = addQuantity;
+                localStorage.setItem("products", JSON.stringify(ProductsInCart));
 
-                    // Si le localStorage existe, on le récupère et on ajoute le nouveau produit
-                } else if (getStorage !== null) {
-                    ProductsInCart = getStorage;
-                    ProductsInCart.push(productAdded);
-                    localStorage.setItem("products", JSON.stringify(ProductsInCart));
-                }
+                // Si le localStorage existe, on le récupère et on ajoute le nouveau produit
+            } else if (getStorage !== null) {
+                ProductsInCart = getStorage;
+                ProductsInCart.push(productAdded);
+                localStorage.setItem("products", JSON.stringify(ProductsInCart));
+            }
 
-                document.location.href = "./cart.html";
+            document.location.href = "./cart.html";
         }
     });
 }
