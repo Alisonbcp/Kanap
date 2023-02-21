@@ -13,7 +13,7 @@ let addressRegExp = new RegExp("^[0-9]{1,3}(?:(?:[,. ]){1}[-A-Za-zàâäéèêë
 
 // bouton commander et lancement de la fonction de contrôle du formulaire
 const btn_commander = document.getElementById("order");
-btn_commander.addEventListener("click", submitForm,false);
+btn_commander.addEventListener("click", (event) => submitForm(event));
 
 
 // Récupération des infos de l'API par rapport à l'ID du produit dans le localStorage
@@ -309,4 +309,3 @@ function submitForm(click) {
 };
 // On lance les fonctions
 addProduct();
-submitForm();
