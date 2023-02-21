@@ -307,5 +307,5 @@ function submitForm(click) {
         alert("Le formulaire est incomplet ou incorrect");
     }
 };
-// On lance les fonctions
+// On lance la fonction
 addProduct();
